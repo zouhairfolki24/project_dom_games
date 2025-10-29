@@ -1,0 +1,20 @@
+
+const icons = ["😊", "🐶", "🍕", "🚗", "🌸", "🎈", "⚽", "🎵"];
+let cards = [...icons, ...icons];
+cards.sort(() => Math.random() - 0.5);
+
+const board = document.getElementById("board");
+
+let firstBox = null;
+let secondBox = null;
+let stopClick = false;
+
+// Create Cards
+cards.forEach(icon => {
+    const box = document.createElement("div");
+    box.classList.add("box");
+    box.dataset.icon = icon;
+    box.textContent = "";
+    box.addEventListener("click", flipBox);
+    board.appendChild(box);
+});
