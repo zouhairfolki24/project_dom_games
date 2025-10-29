@@ -18,3 +18,26 @@ cards.forEach(icon => {
     box.addEventListener("click", flipBox);
     board.appendChild(box);
 });
+
+function flipBox() {
+    if (stopClick || this.classList.contains("flipped")) return;
+
+    this.classList.add("flipped");
+    this.textContent = this.dataset.icon;
+
+    if (!firstBox) {
+        firstBox = this;
+        return;
+    }
+
+    secondBox = this;
+    checkMatch();
+}
+
+function checkMatch() {
+    if (firstBox.dataset.icon === secondBox.dataset.icon) {
+        markAsMatched();
+    } else {
+        hideBoxes();
+    }
+}
