@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    background-color: #ffb6b9;
+    border-radius: 8px;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.box.flipped {
+    background-color: #ffffff;
+}
+
+.box.matched {
+    background-color: #7bed9f;
+    cursor: default;
+}
