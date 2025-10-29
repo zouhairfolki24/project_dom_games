@@ -41,3 +41,26 @@ function checkMatch() {
         hideBoxes();
     }
 }
+
+function markAsMatched() {
+    firstBox.classList.add("matched");
+    secondBox.classList.add("matched");
+    reset();
+}
+
+function hideBoxes() {
+    stopClick = true;
+    setTimeout(() => {
+        firstBox.classList.remove("flipped");
+        secondBox.classList.remove("flipped");
+        firstBox.textContent = "";
+        secondBox.textContent = "";
+        reset();
+    }, 800);
+}
+
+function reset() {
+    firstBox = null;
+    secondBox = null;
+    stopClick = false;
+}
