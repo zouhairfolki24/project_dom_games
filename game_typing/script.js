@@ -29,3 +29,32 @@ function startTimer() {
     }, 1000);
 }
 
+
+input.addEventListener("input", () => {
+    const typed = input.value;
+
+    if (!started) {
+        started = true;
+        startTimer();
+    }
+
+    for (let i = 0; i < spans.length; i++) {
+        const currentChar = typed[i];
+        const correctChar = text[i];
+
+        if (currentChar == null) {
+            spans[i].classList.remove("correct", "wrong");
+        } else if (currentChar === correctChar) {
+            spans[i].classList.add("correct");
+            spans[i].classList.remove("wrong");
+        } else {
+            spans[i].classList.add("wrong");
+            spans[i].classList.remove("correct");
+        }
+    }
+
+    if (typed === text) {
+        clearInterval(timer);
+        endGame();
+    }
+});
