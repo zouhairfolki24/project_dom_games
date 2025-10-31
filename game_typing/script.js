@@ -58,3 +58,21 @@ input.addEventListener("input", () => {
         endGame();
     }
 });
+
+function endGame() {
+    input.disabled = true;
+
+    let correct = document.querySelectorAll(".correct").length;
+    let total = text.length;
+    let accuracy = ((correct / total) * 100).toFixed(1);
+
+    let words = input.value.trim().split(/\s+/).length;
+    let wpm = Math.round(words / ((60 - timeLeft) / 60));
+
+    result.textContent = "✅ Time's up!";
+
+    speedBox.innerHTML = `
+    🏁 WPM: ${isNaN(wpm) ? 0 : wpm} <br>
+    🎯 Accuracy: ${accuracy}%
+  `;
+}
