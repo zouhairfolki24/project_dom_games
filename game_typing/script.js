@@ -16,3 +16,16 @@ text.split("").forEach(char => {
 });
 
 const spans = board.querySelectorAll("span");
+
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
+        timeEl.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            endGame();
+        }
+    }, 1000);
+}
+
